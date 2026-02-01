@@ -21,7 +21,6 @@
             overflow: hidden;
         }
         
-        /* Animowany gradient jako tło */
         .gradient-bg {
             position: fixed;
             top: 0;
@@ -34,7 +33,6 @@
             z-index: -1;
         }
         
-        /* Animacja gradientu */
         @keyframes gradientAnimation {
             0% {
                 background-position: 0% 50%;
@@ -47,7 +45,6 @@
             }
         }
         
-        /* Większy biały kwadrat na środku */
         .kwadrat {
             width: 800px;
             height: 500px;
@@ -57,36 +54,36 @@
             z-index: 1;
             display: flex;
             flex-direction: column;
-            justify-content: space-between; /* Zmienione na space-between */
+            justify-content: space-between;
             align-items: center;
             padding: 40px;
             text-align: center;
             transition: transform 0.3s ease;
-            position: relative; /* Dodane dla pozycjonowania przycisków */
+            position: relative;
+            overflow: hidden;
         }
         
-        /* Napis walentynkowy */
         .walentynka-napis {
             font-size: 36px;
             color: #ff4081;
             font-weight: bold;
             line-height: 1.4;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-            margin-top: 40px; /* Zmienione z -350px na 40px */
+            margin-top: 40px;
+            transition: all 0.5s ease;
         }
         
-        /* Kontener na przyciski NA DOLE kwadratu */
         .przyciski {
             display: flex;
             justify-content: center;
             gap: 40px;
             width: 100%;
             margin-bottom: 20px;
-            position: relative; /* Ważne dla pozycjonowania przycisku NIE */
-            min-height: 60px; /* Minimalna wysokość dla "uciekającego" przycisku */
+            position: relative;
+            min-height: 60px;
+            transition: all 0.5s ease;
         }
         
-        /* Styl przycisków */
         .przycisk {
             padding: 15px 50px;
             font-size: 24px;
@@ -99,7 +96,6 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
         
-        /* Przycisk TAK - kolor #feBdc6 */
         .tak {
             background-color: #feBdc6;
             color: #333;
@@ -111,31 +107,146 @@
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
         }
         
-        /* Przycisk NIE - kolor #898989 */
         .nie {
             background-color: #898989;
             color: white;
-            position: relative; /* Dla efektu uciekania */
+            position: relative;
         }
         
         .nie:hover {
             background-color: #757575;
         }
         
-        /* Animacja pulsowania */
-        @keyframes pulse {
+        .sukces-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            border-radius: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.8s ease;
+        }
+        
+        .sukces-container.aktywny {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .kotek-gif-container {
+            width: 250px;
+            height: 250px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tenor-gif-embed {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .sukces-napis {
+            font-size: 32px;
+            color: #ff4081;
+            font-weight: bold;
+            line-height: 1.4;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: pulseText 2s infinite;
+            margin-bottom: 15px;
+        }
+        
+        /* Styl dla timera */
+        .timer-container {
+            margin-top: 10px;
+            padding: 15px 25px;
+            background-color: rgba(255, 64, 129, 0.1);
+            border-radius: 15px;
+            border: 2px solid rgba(255, 64, 129, 0.2);
+            animation: pulseBorder 3s infinite;
+            min-width: 300px;
+        }
+        
+        .timer {
+            font-size: 28px;
+            color: #ff4081;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+        
+        .timer-podpis {
+            font-size: 18px;
+            color: #ff6699;
+            font-weight: normal;
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+        
+        .dokladna-data {
+            font-size: 14px;
+            color: #ff80ab;
+            font-style: italic;
+            opacity: 0.8;
+        }
+        
+        @keyframes pulseText {
             0% {
                 transform: scale(1);
             }
             50% {
-                transform: scale(1.1);
+                transform: scale(1.05);
             }
             100% {
                 transform: scale(1);
             }
         }
         
-        /* Delikatny efekt hover na kwadracie */
+        @keyframes pulseBorder {
+            0% {
+                border-color: rgba(255, 64, 129, 0.2);
+                box-shadow: 0 0 10px rgba(255, 64, 129, 0.1);
+            }
+            50% {
+                border-color: rgba(255, 64, 129, 0.4);
+                box-shadow: 0 0 15px rgba(255, 64, 129, 0.2);
+            }
+            100% {
+                border-color: rgba(255, 64, 129, 0.2);
+                box-shadow: 0 0 10px rgba(255, 64, 129, 0.1);
+            }
+        }
+        
+        .serduszka {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+        
+        .serduszko {
+            position: absolute;
+            font-size: 30px;
+            color: #ff4081;
+            opacity: 0;
+        }
+        
         .kwadrat:hover {
             transform: scale(1.01);
             box-shadow: 0 0 50px rgba(0, 0, 0, 0.25);
@@ -143,74 +254,171 @@
     </style>
 </head>
 <body>
-    <!-- Animowany gradient w tle -->
     <div class="gradient-bg"></div>
     
-    <!-- Większy biały kwadrat na środku z napisem -->
     <div class="kwadrat">
         <div class="walentynka-napis">
             czy zostaniesz moją walentynka :3
         </div>
         
-        <!-- Przyciski na dole KWADRATU -->
         <div class="przyciski">
             <button class="przycisk tak" id="takBtn">TAK</button>
             <button class="przycisk nie" id="nieBtn">NIE</button>
         </div>
+        
+        <div class="sukces-container" id="sukcesContainer">
+            <div class="kotek-gif-container">
+                <div class="tenor-gif-embed" 
+                     data-postid="26555219" 
+                     data-share-method="host" 
+                     data-aspect-ratio="1" 
+                     data-width="100%">
+                </div>
+            </div>
+            <div class="sukces-napis">
+                KOCHAM CIE KOTEK !!!! ❤️
+            </div>
+            
+            <!-- Dodany timer -->
+            <div class="timer-container">
+                <div class="timer" id="naszTimer">00 dni 00:00:00</div>
+                <div class="timer-podpis">tyle jesteśmy razem :3</div>
+            </div>
+        </div>
+        
+        <div class="serduszka" id="serduszka"></div>
     </div>
 
+    <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
     <script>
-        // Zmienne do śledzenia stanu
         let kliknieciaNie = 0;
         let rozmiarTaku = 1;
         let maxPrzesuniecie = 150;
         
-        // Pobranie przycisków
         const takBtn = document.getElementById('takBtn');
         const nieBtn = document.getElementById('nieBtn');
+        const sukcesContainer = document.getElementById('sukcesContainer');
+        const serduszkaContainer = document.getElementById('serduszka');
+        const walentynkaNapis = document.querySelector('.walentynka-napis');
+        const przyciskiContainer = document.querySelector('.przyciski');
+        const naszTimer = document.getElementById('naszTimer');
+        const dokladnaData = document.getElementById('dokladnaData');
         
-        // Obsługa kliknięcia TAK
+        // Data początkowa - 6 kwietnia 2025 godzina 13:58
+        const dataStart = new Date('2025-04-06T13:58:00');
+        
+        // Formatowanie daty do wyświetlenia
+        const options = { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        };
+        const dataStartFormatowana = dataStart.toLocaleDateString('pl-PL', options);
+        
+        function obliczCzasRazem() {
+            const teraz = new Date();
+            
+            if (teraz < dataStart) {
+                naszTimer.textContent = `00 dni 00:00:00`;
+                naszTimer.style.color = '#ff80ab';
+                return;
+            }
+            
+            const roznica = teraz - dataStart;
+            
+            const dni = Math.floor(roznica / (1000 * 60 * 60 * 24));
+            const godziny = Math.floor((roznica % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minuty = Math.floor((roznica % (1000 * 60 * 60)) / (1000 * 60));
+            const sekundy = Math.floor((roznica % (1000 * 60)) / 1000);
+            
+            const godzinyStr = godziny.toString().padStart(2, '0');
+            const minutyStr = minuty.toString().padStart(2, '0');
+            const sekundyStr = sekundy.toString().padStart(2, '0');
+            
+            naszTimer.textContent = `${dni} dni ${godzinyStr}:${minutyStr}:${sekundyStr}`;
+            
+            if (sekundy % 2 === 0) {
+                naszTimer.style.color = '#ff4081';
+            } else {
+                naszTimer.style.color = '#ff6699';
+            }
+
+            if (sekundy === 0) {
+                naszTimer.style.transform = 'scale(1.05)';
+                setTimeout(() => {
+                    naszTimer.style.transform = 'scale(1)';
+                }, 300);
+            }
+        }
+    
+        function inicjalizujTenorGif() {
+            if (typeof tenorGifEmbeds !== 'undefined') {
+                tenorGifEmbeds();
+            } else {
+                setTimeout(inicjalizujTenorGif, 100);
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(inicjalizujTenorGif, 500);
+            
+            obliczCzasRazem();
+            setInterval(obliczCzasRazem, 1000);
+        });
+        
         takBtn.addEventListener('click', function() {
-            alert('❤️ YAY! To najlepsza wiadomość na świecie! ❤️\n\nBędziesz moją walentynką! 😊');
-            
-            // Dodajemy efekt wizualny
-            this.style.transform = 'scale(1.2)';
+            this.style.transform = 'scale(1.3)';
             this.style.backgroundColor = '#ff80ab';
-            this.style.boxShadow = '0 0 20px #ff4081';
+            this.style.boxShadow = '0 0 30px #ff4081';
             
-            // Przywracamy po chwili
+            walentynkaNapis.style.opacity = '0';
+            przyciskiContainer.style.opacity = '0';
+            
+            setTimeout(() => {
+                sukcesContainer.classList.add('aktywny');
+                
+                inicjalizujTenorGif();
+                
+                obliczCzasRazem();
+                
+                stworzSerduszka();
+                
+                const serduszkaInterval = setInterval(stworzSerduszka, 3000);
+                
+                setTimeout(() => {
+                    clearInterval(serduszkaInterval);
+                }, 15000);
+                
+            }, 800);
+            
             setTimeout(() => {
                 this.style.transform = '';
-                this.style.backgroundColor = '#feBdc6'; /* Przywracamy oryginalny kolor */
+                this.style.backgroundColor = '#feBdc6';
                 this.style.boxShadow = '';
             }, 500);
         });
         
-        // Obsługa kliknięcia NIE
         nieBtn.addEventListener('click', function() {
             kliknieciaNie++;
             
-            // 1. Przycisk TAK się powiększa
             rozmiarTaku += 0.2;
             takBtn.style.transform = `scale(${rozmiarTaku})`;
             
-            // 2. Przycisk NIE "ucieka" (przesuwa się w losowym kierunku)
             const przyciski = document.querySelector('.przyciski');
             const rect = przyciski.getBoundingClientRect();
             
-            // Losowe przesunięcie
             const przesuniecieX = Math.random() * maxPrzesuniecie * 2 - maxPrzesuniecie;
             const przesuniecieY = Math.random() * maxPrzesuniecie * 2 - maxPrzesuniecie;
             
-            // Sprawdzamy, czy przycisk nie wyjdzie poza kontener przycisków
             const noweX = (this.offsetLeft || 0) + przesuniecieX;
             const noweY = (this.offsetTop || 0) + przesuniecieY;
             
-            // Ograniczenia przesunięcia
             const maxX = rect.width - this.offsetWidth;
             const maxY = rect.height - this.offsetHeight;
             
-            // Ustawiamy nową pozycję (z ograniczeniami)
             const bezpiecznyX = Math.max(0, Math.min(noweX, maxX));
             const bezpiecznyY = Math.max(0, Math.min(noweY, maxY));
             
@@ -218,14 +426,13 @@
             this.style.left = `${bezpiecznyX}px`;
             this.style.top = `${bezpiecznyY}px`;
             
-            // Zmiana koloru przycisku NIE
             const koloryNie = ["#898989", "#808080", "#707070", "#606060", "#505050", "#404040"];
             const indexKoloru = Math.min(kliknieciaNie - 1, koloryNie.length - 1);
             this.style.backgroundColor = koloryNie[indexKoloru];
-    
-            // Zwiększamy maksymalne przesunięcie dla większego "uciekania"
+            
             maxPrzesuniecie += 20;
         });
     </script>
 </body>
+<!-- bambo bwymp -->
 </html>
