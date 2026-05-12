@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>nie :(</title>
+    <title>...</title>
     <style>
         * {
             margin: 0;
@@ -43,8 +43,8 @@
 <body>
     <div class="tekst">
         okej.<br>
-        ale to był zły wybór.<br>
-        <span class="maly" onclick="window.location.href='walentynka.html'">wróć i przemyśl</span>
+        wiec wiem ze najprawdopodobniej tego nie czytasz ale bardzo mi na tobie zalezy i nie chce zebysmy zerwali przez cos takiego mam nadziej ze wszystko sie polepszy i nie bede musial ci tego pokazywać<br>
+        <span class="maly" onclick="window.location.href='walentynka.html'">wroc</span>
     </div>
 </body>
 </html>
