@@ -34,15 +34,9 @@
         }
         
         @keyframes gradientAnimation {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         
         .kwadrat {
@@ -169,7 +163,6 @@
             margin-bottom: 15px;
         }
         
-        /* Styl dla timera */
         .timer-container {
             margin-top: 10px;
             padding: 15px 25px;
@@ -198,38 +191,16 @@
             margin-bottom: 5px;
         }
         
-        .dokladna-data {
-            font-size: 14px;
-            color: #ff80ab;
-            font-style: italic;
-            opacity: 0.8;
-        }
-        
         @keyframes pulseText {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-            100% {
-                transform: scale(1);
-            }
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
         
         @keyframes pulseBorder {
-            0% {
-                border-color: rgba(255, 64, 129, 0.2);
-                box-shadow: 0 0 10px rgba(255, 64, 129, 0.1);
-            }
-            50% {
-                border-color: rgba(255, 64, 129, 0.4);
-                box-shadow: 0 0 15px rgba(255, 64, 129, 0.2);
-            }
-            100% {
-                border-color: rgba(255, 64, 129, 0.2);
-                box-shadow: 0 0 10px rgba(255, 64, 129, 0.1);
-            }
+            0% { border-color: rgba(255, 64, 129, 0.2); box-shadow: 0 0 10px rgba(255, 64, 129, 0.1); }
+            50% { border-color: rgba(255, 64, 129, 0.4); box-shadow: 0 0 15px rgba(255, 64, 129, 0.2); }
+            100% { border-color: rgba(255, 64, 129, 0.2); box-shadow: 0 0 10px rgba(255, 64, 129, 0.1); }
         }
         
         .serduszka {
@@ -279,7 +250,6 @@
                 KOCHAM CIE KOTEK !!!! ❤️
             </div>
             
-            <!-- Dodany timer -->
             <div class="timer-container">
                 <div class="timer" id="naszTimer">00 dni 00:00:00</div>
                 <div class="timer-podpis">tyle jesteśmy razem :3</div>
@@ -303,20 +273,8 @@
         const walentynkaNapis = document.querySelector('.walentynka-napis');
         const przyciskiContainer = document.querySelector('.przyciski');
         const naszTimer = document.getElementById('naszTimer');
-        const dokladnaData = document.getElementById('dokladnaData');
         
-        // Data początkowa - 6 kwietnia 2025 godzina 13:58
         const dataStart = new Date('2025-04-06T13:58:00');
-        
-        // Formatowanie daty do wyświetlenia
-        const options = { 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit'
-        };
-        const dataStartFormatowana = dataStart.toLocaleDateString('pl-PL', options);
         
         function obliczCzasRazem() {
             const teraz = new Date();
@@ -364,7 +322,6 @@
         
         document.addEventListener('DOMContentLoaded', function() {
             setTimeout(inicjalizujTenorGif, 500);
-            
             obliczCzasRazem();
             setInterval(obliczCzasRazem, 1000);
         });
@@ -379,19 +336,11 @@
             
             setTimeout(() => {
                 sukcesContainer.classList.add('aktywny');
-                
                 inicjalizujTenorGif();
-                
                 obliczCzasRazem();
-                
                 stworzSerduszka();
-                
                 const serduszkaInterval = setInterval(stworzSerduszka, 3000);
-                
-                setTimeout(() => {
-                    clearInterval(serduszkaInterval);
-                }, 15000);
-                
+                setTimeout(() => { clearInterval(serduszkaInterval); }, 15000);
             }, 800);
             
             setTimeout(() => {
@@ -403,6 +352,11 @@
         
         nieBtn.addEventListener('click', function() {
             kliknieciaNie++;
+
+            if (kliknieciaNie >= 5) {
+                window.location.href = 'nie.html';
+                return;
+            }
             
             rozmiarTaku += 0.2;
             takBtn.style.transform = `scale(${rozmiarTaku})`;
